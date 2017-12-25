@@ -1,0 +1,6 @@
+﻿{
+  "ConnectionStrings": {
+    "DefaultString": "Server=(localdb)\\MSSQLLocalDB;Database=EFData;Trusted_Connection=True;MultipleActiveResultSets=true"
+  }
+
+}

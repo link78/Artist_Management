@@ -1,0 +1,73 @@
+﻿@model ArtistViewModel
+
+    <div class="container">
+        <div class="jumbotron">
+            <h2>Artist Details</h2>
+        </div>
+        <dl class="dl-horizontal">
+            <dt>
+                <label><b>User Name: </b></label>
+            </dt>
+            <dd>
+                @Html.DisplayTextFor(model => model.UserName)
+            </dd>
+            <dt>
+                <label><b>Talent Name: </b></label>
+            </dt>
+            <dd>
+                @Html.DisplayTextFor(model => model.TalentName)
+            </dd>
+            <dt>
+                <label><b>Style: </b></label>
+            </dt>
+            <dd>
+                @Html.DisplayTextFor(model => model.Styles)
+            </dd>
+            <dt>
+                <label><b>Details: </b></label>
+            </dt>
+            <dd>
+                @Html.DisplayTextFor(model => model.Details)
+            </dd>
+            <dt>
+                <label><b>Skill Level: </b></label>
+            </dt>
+            <dd>
+                  @Html.DisplayTextFor(model => model.SkillLevel)
+            </dd>
+            <dt>
+                <label><b>State: </b></label>
+            </dt>
+            <dd>
+                @Html.DisplayTextFor(model => model.Provence)
+            </dd>
+            <dt>
+                  <label><b>City: </b></label>
+            </dt>
+            <dd>
+                @Html.DisplayTextFor(model => model.City)
+            </dd>
+            <dt>
+                <label><b>Website name: </b></label>
+            </dt>
+            <dd>
+               @Html.DisplayTextFor(model => model.WebSite)
+            </dd>
+            <dt>
+                <label><b>Joined Date: </b></label>
+            </dt>
+            <dd>
+                @Html.DisplayTextFor(model => model.CreatedDate)
+            </dd>
+            <dt>
+
+                <label><b>Review Count: </b></label>
+            </dt>
+            <dd>
+                @Html.DisplayTextFor(model => model.ReviewCount)
+            </dd>
+        </dl>
+        <div class="text-center">
+            <a asp-action="Index" asp-controller="home" class="btn btn-default">Cancel</a>
+        </div>
+    </div>

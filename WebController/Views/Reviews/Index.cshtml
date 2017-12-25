@@ -1,0 +1,36 @@
+﻿@model Artist
+
+<div class="container">
+
+    <div class="jumbotron">
+        <h2>Reviews for <b>@Model.UserName</b></h2>
+    </div>
+
+    @foreach (var r in Model.Reviews)
+    {
+            <div class="card text-white bg-success mb-3" style="max-width: 60rem;">
+                <div class="card border-dark mb-3" style="max-width: 60rem;">
+                    <div class="card-body text-dark">
+                        <h4 class="card-title">@r.Body</h4>
+                        <p class="card-text">@r.Rating/10</p>
+                        <p class="card-text">Name: @r.ReviewName</p>
+
+                        <form asp-action="Delete" asp-controller="Reviews" asp-route-ArtistId="@r.Id" method="post">
+                            <a class="btn btn-sm btn-info text-center" asp-action="Edit" asp-route-ArtistId="@r.Id">Edit</a>
+                            <input type="hidden" name="Id" value="@r.Id" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+       
+
+    }
+
+    
+
+</div>
+
+<div class="text-center">
+    <a asp-action="Create" asp-controller="Reviews" asp-route-ArtistId="@Model.Id" class="btn btn-sm btn-primary">Add New Review</a>
+    <a asp-action="Index" asp-controller="Artists" class="btn btn-default">Cancel</a>
+</div>

@@ -1,0 +1,19 @@
+﻿@model IEnumerable<WebController.Entities.ArtistViewModel>
+
+
+
+
+<table>
+    <tr>
+        <th>Rating</th>
+        <th>Body</th>
+    </tr>
+    @foreach(var r in Model)
+    {
+        <tr>
+            <td>@r.Rating</td>
+            <td>@r.Body</td>
+        </tr>
+
+    }
+</table>

@@ -1,0 +1,61 @@
+﻿@model WebController.Entities.Artist
+@{
+    ViewData["Title"] = "Edit";
+}
+<div class="container">
+    <div class="jumbotron">
+
+        <h2 class="text-center">Updating Artist</h2>
+
+     </div>
+        
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="UserName" class="control-label"></label>
+                        <input asp-for="UserName" class="form-control" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Country" class="control-label"></label>
+                        <input asp-for="Country" class="form-control" />
+                        <span asp-validation-for="Country" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Provence" class="control-label"></label>
+                        <input asp-for="Provence" class="form-control" />
+                        <span asp-validation-for="Provence" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="City" class="control-label"></label>
+                        <input asp-for="City" class="form-control" />
+                        <span asp-validation-for="City" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="WebSite" class="control-label"></label>
+                        <input asp-for="WebSite" class="form-control" />
+                        <span asp-validation-for="WebSite" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CreatedDate" class="control-label"></label>
+                        <input asp-for="CreatedDate" class="form-control" />
+                        <span asp-validation-for="CreatedDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group text-center">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                        <a asp-action="Index" class="btn btn-default">Back to List</a>
+                    </div>
+                </form>
+                        
+                 <div>
+        
+             </div>
+
+   </div>
+        
+        
+
+
+ 
+        

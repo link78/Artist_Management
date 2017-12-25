@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-dark bg-primary">
+        <a class="navbar-brand" asp-action="Index" asp-controller="Home">Navbar</a>
+       
+
+        <div class="navbar navbar-brand">
+            
+            <a asp-action="Index" asp-controller="Home" >Home</a>
+            <a asp-action="Index" asp-controller="Artists" >Artists</a>
+            <a asp-action="Index" asp-controller="ArtistSkills" >Artists Levels</a>
+        </div>
+    </nav>
+    
+  
+
+
+    <div>
+        @RenderBody()
+    </div>
+
+    <footer class="page-footer">
+
+        
+      <address>
+
+      </address>
+
+    </footer>
+
+</body>
+</html>

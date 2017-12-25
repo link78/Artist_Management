@@ -1,0 +1,94 @@
+﻿@model IEnumerable<WebController.Entities.Artist>
+
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="bg-primary panel-body">
+        <h3 class="text-center ">Artist Lists @Model.Count() users </h3>
+     </div>
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+    <form asp-action="Index" method="get">
+        <div class="form-actions no-color">
+            <p>
+                 <input type="text" placeholder="search by name city and country" class="form-control search-field" name="SearchString" value="@ViewData["currentFilter"]" />
+                <input type="submit" value="Search" class="btn btn-default" /> 
+                <a asp-action="Index">Back to Full List</a>
+            </p>
+        </div>
+    </form>
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        
+              <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.UserName)</a>
+</th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Country)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Provence)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.City)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.WebSite)
+                    </th>
+                    <th>
+                        
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.CreatedDate)</a>
+</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+            {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Country)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Provence)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.City)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.WebSite)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CreatedDate)
+                        </td>
+                        <td>
+                            <form asp-action="Delete" asp-controller="Artists" asp-route-id="@item.Id" method="post">
+                                <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id">Edit</a>
+                                <a asp-action="Index" asp-controller="Reviews" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Reviews</a>
+                                <input type="hidden" name="Id" value="@item.Id" />
+                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                            </form>
+
+
+                            
+                         </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    <br /><br />
+
+
+

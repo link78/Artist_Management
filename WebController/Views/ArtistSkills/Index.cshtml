@@ -1,0 +1,59 @@
+﻿@model IEnumerable<WebController.Entities.ArtistSkill>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container">
+    <div class="bg-primary panel-body">
+        <h4 class="text-center">Artist Skills List @Model.Count() users</h4>
+    </div>
+    
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TalentName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SkillLevel)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Details)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Styles)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TalentName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SkillLevel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Details)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Styles)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" class="btn btn-info" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<br /><br />

@@ -1,0 +1,57 @@
+﻿@model WebController.Entities.Artist
+
+@*@{
+    ViewData["Title"] = "Create";
+}*@
+
+
+<div class="container">
+    <div class="jumbotron">
+        <h2>Create new Artist</h2>
+    </div>
+    <div class="container-fluid">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label">User Name</label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WebSite" class="control-label">Web Site Name</label>
+                <input asp-for="WebSite" class="form-control" />
+                <span asp-validation-for="WebSite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedDate" class="control-label">Joined Date</label>
+                <input asp-for="CreatedDate" class="form-control" />
+                <span asp-validation-for="CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Country" class="control-label"></label>
+                <input asp-for="Country" class="form-control" />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Provence" class="control-label"></label>
+                <input asp-for="Provence" class="form-control" />
+                <span asp-validation-for="Provence" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+
+            <div class="form-group text-center">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-default">Back to List</a>
+            </div>
+        </form>
+    </div>
+            
+        </div>
+
+
+            
+  
