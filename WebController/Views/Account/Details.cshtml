@@ -1,0 +1,10 @@
+﻿<div class="container">
+    <h2 class="center-block">User Infromation</h2>
+    <hr />
+    @foreach (var d in User.Claims)
+    {
+        <b>@d.Type: </b> <p>@d.Value</p>
+
+    }
+</div>
+

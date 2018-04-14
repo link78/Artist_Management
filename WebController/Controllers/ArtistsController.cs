@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebController.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebController.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class ArtistsController : Controller
     {
         private readonly ArtistContext _context;

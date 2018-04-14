@@ -3,7 +3,12 @@
 
 
 <div class="jumbotron text-center">
-   <h2>Arist web management</h2>
+   <h3>Artist Web Management</h3>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p>Hello @User.Identity.Name</p>
+
+    }
 </div>
 <div class="container">
     <form method="get">
@@ -11,30 +16,35 @@
             <p>
                 <input type="search" placeholder="search by username" class="form-control search-field" name="search" />
                 <input type="submit" value="Search" class="btn btn-default" />
-                
+
             </p>
         </div>
     </form>
 
-    @foreach (var m in Model)
-    {
+    
+            @foreach (var m in Model)
+            {
 
-        <div class="card text-white  mb-3 col-lg-4" style="max-width: 60rem;">
-            <div class="card border-dark mb-3" style="max-width: 60rem;">
-                <div class="card-header"><h3><a style="cursor:pointer" asp-action="Details" asp-route-id="@m.ArtistId"> @m.UserName</a></h3></div>
-                <div class="card-body text-dark">
-                    <h4 class="card-title">@m.WebSite</h4>
-                    <p class="card-text">@m.CreatedDate</p>
-                    <p class="card-text">@m.Provence - @m.City</p>
-                    <p class="card-text">Skill Level: @m.SkillLevel</p>
-                    <p class="card-text">Review Count: @m.ReviewCount</p>
-                </div>
-            </div>
+               
+
+    <div class="panel panel-default mb-3 col-lg-4">
+        <div class="panel-heading"><h3><a style="cursor:pointer" asp-action="Details" asp-route-id="@m.ArtistId"> @m.UserName</a></h3></div>
+        <div class="panel-body">
+            <h4 class="card-title">@m.WebSite</h4>
+            <p class="card-text">@m.CreatedDate</p>
+            <p class="card-text">@m.Provence - @m.City</p>
+            <p class="card-text">Skill Level: @m.SkillLevel</p>
+            <p class="card-text">Review Count: @m.ReviewCount</p>
         </div>
+    </div>
 
-    }
 
 
-</div>
+
+
+            }
+
+
+        </div>
 
 

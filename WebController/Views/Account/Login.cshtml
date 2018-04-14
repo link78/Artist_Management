@@ -1,0 +1,40 @@
+﻿@model LoginViewModel
+
+
+
+
+
+<form asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
+    <h4>Login Page</h4>
+    <hr />
+    <div class="container-fluid">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        
+        <div class="form-group">
+            <label asp-for="Email" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+        </div>
+        
+        
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-default">Login</button>
+                <a asp-action="Index" asp-controller="Home" class="btn btn-default">Cancel</a>
+                <a asp-action="Register" asp-controller="Account" class="btn btn-default">Register</a>
+            </div>
+        </div>
+
+    </div>
+</form>
+
+

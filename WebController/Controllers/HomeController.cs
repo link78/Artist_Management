@@ -22,28 +22,12 @@ namespace WebController.Controllers
         public IActionResult Index(string search = null)
         {
 
-            //var sql = _context.Artists.Include(s => s.ArtistSkills)
-            //    .Include(s => s.Reviews)
-            //    .OrderBy(r => r.Reviews.Average(a => a.Rating))
-            //     .Where(r => search == null || r.UserName.StartsWith(search))
-            //    .Take(20)
-            //    .Select(r => new ArtistViewModel
-            //    {
-            //        ArtistId = r.Id,
-            //        UserName = r.UserName,
-            //        WebSite = r.WebSite,
-            //        CreatedDate = r.CreatedDate,
-                    
-            //        City = r.City,
-            //        SkillLevel = r.ArtistSkills.Count(),
-            //        Provence = r.Provence,
-            //        ReviewCount = r.Reviews.Count()
-            //    });
+            
 
 
 
-            var model = from m in _context.ArtistSkill.Include(a=> a.Artist)
-                        orderby m.Artist.Reviews.Average(r => r.Rating) ascending
+            var model = from m in _context.ArtistSkill.Include(a=> a.Artist) 
+                        orderby m.Artist.Reviews.Average(r => r.Rating) ascending  
                          where search == null || m.Artist.UserName.StartsWith(search) || m.Artist.City.StartsWith(search)
 
                         select new ArtistViewModel
@@ -63,7 +47,7 @@ namespace WebController.Controllers
                         };
 
 
-            return View(model);
+            return View(model.Take(12));
         }
 
 

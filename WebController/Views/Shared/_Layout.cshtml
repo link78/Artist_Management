@@ -1,21 +1,42 @@
-﻿<!DOCTYPE html>
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+<!DOCTYPE html>
+
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    
     <title>@ViewBag.Title</title>
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-dark bg-primary">
-        <a class="navbar-brand" asp-action="Index" asp-controller="Home">Navbar</a>
-       
+        <a class="navbar-brand" asp-action="Index" asp-controller="Home">Artist Web Management</a>
+        
+        <a class="navbar-brand" asp-action="Details" asp-controller="Account">User Information</a>
 
         <div class="navbar navbar-brand">
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-action="Index" asp-controller="Account">Users Accounts</a>
+
+            }
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a asp-action="Index" asp-controller="Artists">Artists</a>
+                <a asp-action="Index" asp-controller="ArtistSkills">Artists Informations</a>
+                
+                <a asp-action="Logout" asp-controller="Account">Logout</a>
+            }
+            else
+            {
+                <a  asp-action="Register" asp-controller="Account">Register</a>
+                <a  asp-action="Login" asp-controller="Account" >Login</a>
+            }
+            @*<a asp-action="Index" asp-controller="Home" >Home</a>*@
             
-            <a asp-action="Index" asp-controller="Home" >Home</a>
-            <a asp-action="Index" asp-controller="Artists" >Artists</a>
-            <a asp-action="Index" asp-controller="ArtistSkills" >Artists Levels</a>
         </div>
     </nav>
     

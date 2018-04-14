@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using WebController.Entities;
 using Microsoft.EntityFrameworkCore;
 using WebController.Core;
+using Microsoft.AspNetCore.Identity;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace WebController
 {
@@ -27,7 +29,45 @@ namespace WebController
             services.AddDbContext<ArtistContext>(options =>
             options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
 
-            
+            services.AddDbContext<AppIdentity>(options =>
+            options.UseSqlServer(Configuration["ConnectionStrings:IdentityConnection"]));
+
+            // adding Identity Db
+            services.AddIdentity<AppUser, IdentityRole>(opt =>
+            {
+                opt.Password.RequiredLength = 6;
+                opt.Password.RequireNonAlphanumeric = false;
+                opt.Password.RequireDigit = false;
+            }).AddEntityFrameworkStores<AppIdentity>()
+                .AddDefaultTokenProviders();
+
+
+            services.ConfigureApplicationCookie(opt => opt.AccessDeniedPath = "/Account/AccessDenied");
+           
+
+
+            //JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
+
+            //services.AddAuthentication(options =>
+            //{
+            //    options.DefaultScheme = "Cookies";
+            //    options.DefaultChallengeScheme = "oidc";
+            //})
+            //    .AddCookie("Cookies")
+            //    .AddOpenIdConnect("oidc", options =>
+            //    {
+            //        options.SignInScheme = "Cookies";
+            //        options.Authority = "http://localhost:44380";  // identitySever
+
+            //        options.RequireHttpsMetadata = false;
+
+            //        // client Info
+            //        options.ClientId = "mvcApp";
+            //        options.SaveTokens = true;
+            //    });
+
+
             services.AddMvc();
             services.AddMemoryCache();
             services.AddSession();
@@ -42,6 +82,7 @@ namespace WebController
             app.UseStaticFiles();
             app.UseSession();
 
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
