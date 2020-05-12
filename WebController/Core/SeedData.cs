@@ -16,10 +16,10 @@ namespace WebController.Core
             ArtistContext context = app.ApplicationServices.GetRequiredService<ArtistContext>();
 
 
-            //if (context.Database == null)
-            //{
-            //    throw new Exception("DB is null");
-            //}
+          //  if (context.Database == null)
+          //  {
+           //     throw new Exception("DB is null");
+           // }
 
             if (!context.Artists.Any())
             {
@@ -1973,5 +1973,5 @@ namespace WebController.Core
 
             context.SaveChanges();
         }
-    }
+    } 
 }
