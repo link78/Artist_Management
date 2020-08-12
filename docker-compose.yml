@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  webcontroller:
+    image: ${DOCKER_REGISTRY-}webcontroller
+    build:
+      context: .
+      dockerfile: WebController/Dockerfile
